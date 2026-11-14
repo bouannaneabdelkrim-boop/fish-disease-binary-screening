@@ -1,6 +1,3 @@
-# fish-disease-binary-screening
-Binary (Diseased vs Healthy) fish disease screening with a class-weighted ResNet-18 — NCMCS 2026
-
 # Binary Fish Disease Screening with a Class-Weighted ResNet-18
 
 Code and results for the paper:
@@ -28,8 +25,8 @@ Instead of telling several fish diseases apart, the model answers a simpler scre
 | **True Diseased** | 297 | 3 |
 | **True Healthy** | 1 | 49 |
 
-Figures: [`figures/confusion_matrix.pdf`](figures/confusion_matrix.pdf) · [`figures/training_curves.pdf`](figures/training_curves.pdf)
-Full numbers: [`results/test_metrics.txt`](results/test_metrics.txt) · [`results/train_summary.txt`](results/train_summary.txt) · [`results/history.csv`](results/history.csv)
+Figures: [`confusion_matrix.pdf`](confusion_matrix.pdf) · [`training_curves.pdf`](training_curves.pdf)
+Full numbers: [`test_metrics.txt`](test_metrics.txt) · [`train_summary.txt`](train_summary.txt) · [`history.csv`](history.csv)
 
 These results come from a single training run (seed 42) on one dataset of curated images; see the paper for the limitations.
 
@@ -58,24 +55,32 @@ The images are **not** included in this repository; download them from Kaggle.
 | Test | 300 | 50 | 350 |
 | **Total** | **1,500** | **250** | **1,750** |
 
-[`split/split_files.csv`](split/split_files.csv) lists the set (train / val / test) of every image, so the exact split can be checked or rebuilt.
+[`split_files.csv`](split_files.csv) lists the set (train / val / test) of every image, so the exact split can be checked or rebuilt.
 
 ---
 
 ## Repository structure
 
 ```
+Code
 ├── split_dataset.py        # 60/20/20 stratified split (seed 42)
 ├── dataset.py              # data loaders, augmentation, class weights
 ├── model.py                # ResNet-18 with Dropout(0.4) + 2-class head
 ├── train_with_history.py   # training with per-epoch logging
 ├── evaluate.py             # test-set metrics and confusion matrix
 ├── plot_curves.py          # training curves figure
-├── requirements.txt
-├── split/split_files.csv   # file list of the three sets
-├── results/                # history.csv, train_summary.txt, test_metrics.txt
-└── figures/                # confusion_matrix.pdf, training_curves.pdf
+└── requirements.txt
+
+Results of the paper (seed 42)
+├── split_files.csv         # set (train/val/test) of every image
+├── history.csv             # per-epoch losses, accuracies and learning rate
+├── train_summary.txt       # best epoch, learning-rate halvings, training time
+├── test_metrics.txt        # test-set metrics and confusion matrix
+├── confusion_matrix.pdf    # Figure 1 of the paper
+└── training_curves.pdf     # Figure 2 of the paper
 ```
+
+When you run the scripts, they write their outputs into the sub-folders `split/`, `models/`, `results/` and `figures/` (see the table below).
 
 ---
 
