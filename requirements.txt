@@ -1,0 +1,10 @@
+# Versions used for the NCMCS 2026 paper (Python 3.14.4).
+# For GPU training, install torch/torchvision for your CUDA version first:
+#   https://pytorch.org/get-started/locally/   (the paper used CUDA 12.6)
+torch==2.14.0
+torchvision==0.29.0
+numpy==2.5.2
+scikit-learn==1.9.1
+matplotlib
+seaborn
+pillow
