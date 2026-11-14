@@ -1,0 +1,24 @@
+========================================
+        TEST-SET METRICS (paper)        
+========================================
+Test images: 350 (Diseased: 300, Healthy: 50)
+Accuracy: 98.86% (346 of 350 correct)
+
+Classification report (precision, recall, F1-score):
+              precision    recall  f1-score   support
+
+    Diseased     0.9966    0.9900    0.9933       300
+     Healthy     0.9423    0.9800    0.9608        50
+
+    accuracy                         0.9886       350
+   macro avg     0.9695    0.9850    0.9770       350
+weighted avg     0.9889    0.9886    0.9887       350
+
+Confusion matrix (rows = true label, columns = predicted label):
+                 pred Diseased   pred Healthy
+true Diseased              297              3
+true Healthy                 1             49
+
+Diseased fish missed (predicted Healthy): 3 of 300
+Healthy fish labelled Diseased:           1 of 50
+========================================

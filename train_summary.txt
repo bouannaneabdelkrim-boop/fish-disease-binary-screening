@@ -1,0 +1,8 @@
+Seed: 42 | data: split | epochs: 15 | batch: 32
+Class weights (Diseased, Healthy): [0.5833, 3.5]
+Learning rate halved after epoch(s): [9]
+Best epoch (lowest val loss): 15 | best val loss: 0.0248
+At best epoch: val acc 98.86% | val F1 healthy 0.960 | train acc 100.00%
+Train loss: epoch 1 0.3785 -> epoch 15 0.0059
+Epoch 15: train acc 100.00% | val acc 98.86%
+Total training time: 3.8 min
